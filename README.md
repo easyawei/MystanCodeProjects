@@ -1,7 +1,7 @@
 ## stanCode Projects
 Welcom !\
-This repository holds my programming assignment projects done during the period of stanCode SC101 course (2023May).
+This repository holds my programming projects done during the period of stanCode SC101 course.
 
-## Aassignment Scource Codes.
-* MyPhotoshop
+## Projects Scource Codes.
+* [MyPhotoshop](https://github.com/easyawei/MystanCodeProjects/blob/main/MystanCodeProjects/my_photoshop/stanCodeshop.py)
   *  image processing.
