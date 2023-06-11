@@ -40,25 +40,6 @@ def get_average(pixels):
         rgb (List[int]): a list of average red, green, and blue values of the pixels
                         (returns in order: [red, green, blue])
     """
-
-    # ----- option 01 from chao assignment ----- #
-    #   def get_average(pixels):
-    #     r = 0
-    #     g = 0
-    #     b = 0
-    #
-    #     for pixel in pixels:
-    #         r += pixel.red
-    #         g += pixel.green
-    #         b += pixel.blue
-    #
-    #     r_avg = r//len(pixels)
-    #     g_avg = g//len(pixels)
-    #     b_avg = b//len(pixels)
-    #
-    #     return [r_avg, g_avg, b_avg]
-
-    # ----- method from TA Yi-Syuan ----- #
     return[
         sum(map(lambda pixel: pixel.red, pixels))//len(pixels),
         sum(map(lambda pixel: pixel.green, pixels))//len(pixels),
@@ -77,26 +58,6 @@ def get_best_pixel(pixels):
         best (Pixel): the pixel which has the closest color to the average
     """
 
-
-    # avg = get_average(pixels)
-    # dis_min = float('inf')
-    # best = ""
-
-    # ----- option 01_best_pixel_by_index ----- #
-    # for i in range(len(pixels)):
-    #     dis = get_pixel_dist(pixels[i], avg[0], avg[1], avg[2])
-    #     if dis < dis_min:
-    #         dis_min = dis
-    #         best = pixels[i]
-
-    # ----- option 02_best_pixel_by_for_each ----- #
-    # for pixel in pixels:
-    #     dis = get_pixel_dist(pixel, avg[0], avg[1], avg[2])
-    #     if dis < dis_min:
-    #         dis_min = dis
-    #         best = pixel
-
-    # ----- method _best_pixel_from TA Yi-Syuan ----- #, by tuple
     best = min(list((get_pixel_dist(pixel, get_average(pixels[0]), get_average(pixels[1]), get_average(pixels[2])),
                      pixel) for pixel in pixels), key=lambda t: t[0])
 
@@ -133,30 +94,7 @@ def solve(images):
     print("Displaying image!")
     result.show()
 
-    # ----- YOUR CODE STARTS HERE ----- #
-    # Write code to populate image and create the 'ghost' effect
-
-    # M1
-    # green_im = SimpleImage.blank(20, 20, 'green')
-    # green_pixel = green_im.get_pixel(0, 0)
-    # print(get_pixel_dist(green_pixel, 5, 255, 10))
-
-    # M2
-    # green_pixel = SimpleImage.blank(20, 20, 'green').get_pixel(0, 0)
-    # red_pixel = SimpleImage.blank(20, 20, 'red').get_pixel(0, 0)
-    # blue_pixel = SimpleImage.blank(20, 20, 'blue').get_pixel(0, 0)
-    # print(get_average([green_pixel, green_pixel, green_pixel, blue_pixel]))
-
-    # M3
-    # green_pixel = SimpleImage.blank(20, 20, 'green').get_pixel(0, 0)
-    # red_pixel = SimpleImage.blank(20, 20, 'red').get_pixel(0, 0)
-    # blue_pixel = SimpleImage.blank(20, 20, 'blue').get_pixel(0, 0)
-    # best1 = get_best_pixel([green_pixel, blue_pixel, blue_pixel])
-    # print(best1.red, best1.green, best1.blue)
-
-    # ----- YOUR CODE ENDS HERE ----- #
-
-
+    
 def jpgs_in_dir(dir):
     """
     (provided, DO NOT MODIFY)
